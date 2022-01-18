@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/scan_destination">
+
+    <fragment
+        android:id="@+id/scan_destination"
+        android:label="ScanBarcodeFragment"
+        android:name="com.example.camerax.ScanBarcodeFragment"
+        tools:layout="@layout/fragment_scan_barcode">
+
+        <action
+            android:id="@+id/scan_destination_to_success_destination"
+            app:destination="@id/success_destination" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/success_destination"
+        android:label="SuccessBarcodeFragment"
+        android:name="com.example.camerax.SuccessFragment"
+        tools:layout="@layout/fragment_scan_barcode">
+
+        <argument
+            android:name="code"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/success_destination_to_scan_destination"
+            app:destination="@id/scan_destination" />
+    </fragment>
+</navigation>
+
